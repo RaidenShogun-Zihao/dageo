@@ -1,0 +1,66 @@
+{
+  "set-0": {
+    "channel_orientation": 63.93933122172756,
+    "channel_amplitude": [
+      99.72003201597424,
+      250.09738942599537,
+      399.99645679311095
+    ],
+    "channel_wavelength": [
+      998.3771346070469,
+      2006.0222525108188,
+      3002.013904724877
+    ],
+    "channel_thickness": [
+      4.015660555164119,
+      8.02125812391539,
+      10.807448731138143
+    ],
+    "channel_thickness_undulation": 1.006385274247584,
+    "channel_thickness_undulation_wavelength": [
+      250.36201979679302,
+      398.4759608983245,
+      448.44486265914315
+    ],
+    "channel_width_thickness_ratio": [
+      40.545201273906024,
+      50.53224723965168,
+      60.21913791333122
+    ],
+    "channel_width_undulation": 1.021202467139173,
+    "channel_width_undulation_wavelength": 249.2684837598085,
+    "channel_prop": 0.40189379634538847
+  },
+  "set-1": {
+    "channel_orientation": 45.94027637621462,
+    "channel_amplitude": [
+      98.16203534405199,
+      251.1448878929924,
+      400.3245308818956
+    ],
+    "channel_wavelength": [
+      1009.8934540579546,
+      2008.4295824697977,
+      3003.9136764267087
+    ],
+    "channel_thickness": [
+      4.111706626685296,
+      8.002547496480005,
+      10.775694168554176
+    ],
+    "channel_thickness_undulation": 1.0147354365869505,
+    "channel_thickness_undulation_wavelength": [
+      249.9803344958115,
+      398.8015770326054,
+      448.3657322896644
+    ],
+    "channel_width_thickness_ratio": [
+      39.87761151661253,
+      49.4521315931951,
+      58.02613825217046
+    ],
+    "channel_width_undulation": 0.9945245219176657,
+    "channel_width_undulation_wavelength": 250.56212687685527,
+    "channel_prop": 0.4022891542425987
+  }
+}

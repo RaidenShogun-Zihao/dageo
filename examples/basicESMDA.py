@@ -193,7 +193,7 @@ nm_post, nd_post = dageo.esmda(
 
 plot_result(nm_post, nd_post, n_dobs, title='Nonlinear Case', ylim=[0, 0.7])
 
-
+plt.show()
 ###############################################################################
 # Original figure from Geir's presentation
 # ''''''''''''''''''''''''''''''''''''''''

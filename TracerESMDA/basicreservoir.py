@@ -7,8 +7,13 @@ Ensemble Smoother Multiple Data Assimilation (ESMDA) in Reservoir Simulation.
 """
 import numpy as np
 import matplotlib.pyplot as plt
-
 import dageo
+import subprocess
+import os
+import UTCHEMresult
+import numpy as np
+from joblib import Parallel, delayed
+
 
 # For reproducibility, we instantiate a random number generator with a fixed
 # seed. For production, remove the seed!
@@ -21,8 +26,8 @@ rng = np.random.default_rng(1848)
 # ----------------
 
 # Grid extension
-nx = 30
-ny = 30
+nx = 10
+ny = 10
 nc = nx*ny
 
 # Permeabilities
@@ -38,13 +43,7 @@ nt = time.size
 
 # Assumed sandard deviation of our data
 dstd = 0.5
-
-# Observation location indices (should be well locations)
-ox, oy = 1, 1
-
-# Wells (if None, first and last cells are used with pressure 180 and 120)
-wells = None
-
+file_location=
 
 ###############################################################################
 # Create permeability maps for ESMDA
@@ -84,12 +83,26 @@ for ax in axs[:, 0].ravel():
 # -------------------------------------------
 
 # Instantiate reservoir simulator
-RS = dageo.Simulator(nx, ny, wells=wells)
-
-
 def sim(x):
+    # Parallelize determinant calculation
+
+    # Parallelize across all CPU cores
+    n_jobs = -1  # Use all available cores
+    results = Parallel(n_jobs=n_jobs)(
+        delayed(UTCHEM)(i, x) for i in range(x.shape[0])
+    )
     """Custom fct to use exp(x), and specific dt & location."""
-    return RS(np.exp(x), dt=dt, data=(ox, oy))
+    return results
+
+def UTCHEM(index,x):
+    os.chdir(file_location + f"\{index}")
+    print(f"start case{int(index)}")
+    subprocess.call("Aug-14-ENG.exe", stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print(f"finished case{int(index)}")
+    simresult = UTCHEMresult.result()
+    return simresult
+
+
 
 
 # Simulate data for the prior and true fields
