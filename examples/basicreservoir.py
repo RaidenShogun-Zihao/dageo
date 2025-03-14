@@ -88,6 +88,7 @@ RS = dageo.Simulator(nx, ny, wells=wells)
 
 
 def sim(x):
+    ss=RS(np.exp(x), dt=dt, data=(ox, oy))
     """Custom fct to use exp(x), and specific dt & location."""
     return RS(np.exp(x), dt=dt, data=(ox, oy))
 

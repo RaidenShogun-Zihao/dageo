@@ -109,8 +109,7 @@ ax.set_ylabel('y-direction')
 for well in wells:
     ax.plot(well[0], well[1], ['C3v', 'C1^'][int(well[2] == 120)])
 fig.colorbar(im, ax=ax, label="Localization Weight (-)")
-fig.show()
-
+fig.savefig(r'1.png')
 ###############################################################################
 # ESMDA
 # -----
@@ -170,14 +169,13 @@ axs[2].contour(loc_mat.sum(axis=2).T, levels=[2.0, ], colors="w")
 
 fig.colorbar(im, ax=axs, label="Log Permeabilities (mD)",
              orientation="horizontal")
-fig.show()
 for ax in axs:
     for well in wells:
         ax.plot(well[0], well[1], ["C3v", "C1^"][int(well[2] == 120)])
 for ax in axs:
     ax.set_xlabel('x-direction')
 axs[0].set_ylabel('y-direction')
-
+fig.savefig(r'2.png')
 
 ###############################################################################
 # Compare data
@@ -187,7 +185,7 @@ axs[0].set_ylabel('y-direction')
 fig, axs = plt.subplots(
     2, 3, figsize=(8, 5), sharex=True, sharey=True, constrained_layout=True)
 fig.suptitle('Prior and posterior data')
-fig.show()
+
 
 for i, ax in enumerate(axs[0, :]):
     ax.set_title(f"Well ({ox[i]}; {oy[i]})")
@@ -204,7 +202,7 @@ for i, ax in enumerate(axs[:, 0]):
 for i, txt in enumerate(["No l", "L"]):
     axs[i, 2].yaxis.set_label_position("right")
     axs[i, 2].set_ylabel(f"{txt}ocalization")
-
+fig.savefig(r'3.png')
 
 ###############################################################################
 
